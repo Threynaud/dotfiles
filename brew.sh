@@ -46,10 +46,8 @@ brew install openssh
 
 # Install other useful binaries.
 brew install git
-brew install yarn --without-node
 brew install tmux
-
-
+brew install zsh
 
 # -------------------------------
 # Casks
@@ -62,7 +60,6 @@ brew cask install docker
 
 # Browsers
 brew cask install google-chrome
-brew cask install firefox
 
 # Communication
 brew cask install slack
@@ -74,7 +71,6 @@ brew install vim --with-override-system-vi
 brew install neovim --with-override-system-vi
 nvim +PlugClean! +qall
 nvim +silent +PlugInstall +qall
-python3 ~/.config/nvim/plugged/YouCompleteMe/install.py
 
 # vim's best friend
 brew install tmux
