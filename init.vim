@@ -121,6 +121,7 @@ let g:jedi#use_splits_not_buffers = "right"
 autocmd VimEnter * NERDTree | wincmd p
 nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
 
 " Neomake
 let g:neomake_python_enabled_makers = ['flake8']
