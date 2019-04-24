@@ -80,6 +80,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Unimpaired
 Plug 'tpope/vim-unimpaired'
 
+" Vim-Tmux navigator
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 
@@ -188,7 +191,7 @@ set nowrap
 colorscheme challenger_deep
 
 " 256 colors
-set t_Co=256
+"set t_Co=256
 
 " line numbers
 set number

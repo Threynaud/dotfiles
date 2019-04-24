@@ -48,6 +48,12 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 
 
+# UNBABEL
+source ~/.unbabelrc
+
+## Unbabel Pypi
+# export PIP_EXTRA_INDEX_URL="https://${PYPI_USERNAME}:${PYPI_PASSWORD}@pypi.infra.unbabel.com/simple/"
+
 # Aliases
 if [ -f ~/.aliases ]; then
     . ~/.aliases

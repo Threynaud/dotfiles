@@ -1,0 +1,29 @@
+[user]
+	name = Thomas Reynaud
+    email = thmsreynaud@gmail.com
+
+[core]
+	editor = nvim
+    excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	# insanely beautiful diffs
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+[alias]
+	c = commit -m
+	up = pull
+	p = push
+	s = status -s
+	co = checkout
+	df = diff --color --color-words --abbrev
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+
+[mergetool "fugitive"]
+    cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+
+[merge]
+	tool = fugitive
+
+[help]
+	autocorrect = 1
