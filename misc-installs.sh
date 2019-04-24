@@ -24,5 +24,6 @@ else
     ln -s "$ZSH/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH/custom/themes/spaceship.zsh-theme"
 fi
 
-# Assuming :w
-
+# Tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+brew install reattach-to-user-namespace
