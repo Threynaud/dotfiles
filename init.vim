@@ -49,8 +49,9 @@ Plug 'terryma/vim-multiple-cursors'
 " Highlight Yank
 Plug 'machakann/vim-highlightedyank'
 
-" Challenger Deep
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+" Color theme
+"Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'joshdick/onedark.vim'
 
 " Polyglot
 Plug 'vim-python/python-syntax'
@@ -83,6 +84,9 @@ Plug 'tpope/vim-unimpaired'
 " Vim-Tmux navigator
 Plug 'christoomey/vim-tmux-navigator'
 
+" Code folding
+Plug 'tmhedberg/SimpylFold'
+
 call plug#end()
 
 
@@ -96,11 +100,9 @@ set splitbelow
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 call deoplete#custom#option('max_list', 10)
 
-" Airline Theme
-"let g:airline_theme='luna'
 " Lightline Theme
 let g:lightline = {
-      \ 'colorscheme': 'challenger_deep',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -122,7 +124,6 @@ let g:jedi#use_splits_not_buffers = "right"
 
 " NerdTree
 autocmd VimEnter * NERDTree | wincmd p
-nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 nnoremap <Leader>f :NERDTreeToggle<Enter>
@@ -142,7 +143,6 @@ hi HighlightedyankRegion cterm=reverse gui=reverse
 
 " Syntax highlighting
 let g:python_highlight_all = 1
-let g:python_highlight_class_vars = 1
 
 " Raibow brackets
 let g:rainbow_active = 1
@@ -155,9 +155,6 @@ let g:rainbow_conf = {
 	\		'*': {},
 	\		'tex': {
 	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-	\		},
-	\		'lisp': {
-	\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
 	\		},
 	\		'vim': {
 	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
@@ -187,11 +184,14 @@ let g:neomake_python_flake8_maker = {
 " long lines as just one line (have to scroll horizontally)
 set nowrap
 
-"Colorscheme
-colorscheme challenger_deep
-
-" 256 colors
-"set t_Co=256
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 " line numbers
 set number
@@ -205,13 +205,8 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
-" Enable true  color
-if has('nvim') || has('termguicolors')
-  set termguicolors
-endif
-
 "Colorscheme
-colorscheme challenger_deep
+colorscheme onedark
 
 " Ruler
 set colorcolumn=120
