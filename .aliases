@@ -27,3 +27,6 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 #Exa
 alias ls="exa"
+
+# Kitty
+alias icat="kitty +kitten icat"
